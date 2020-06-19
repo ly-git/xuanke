@@ -5,5 +5,11 @@ import com.xuanke.entity.Course;
 import java.util.List;
 
 public interface CourseService {
-    public List<Course> getAll();
+     List<Course> getAll();
+
+    List<Course> getAllCourse();
+
+    List<Course> insertCourses(Course course);
+
+    Course getCourseBycid(String cid);
 }

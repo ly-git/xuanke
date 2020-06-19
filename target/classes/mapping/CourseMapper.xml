@@ -10,7 +10,7 @@
     <result column="max_num" jdbcType="INTEGER" property="maxNum" />
     <result column="credit" jdbcType="VARCHAR" property="credit" />
     <result column="period" jdbcType="VARCHAR" property="period" />
-    <result column="choose_time" jdbcType="TIMESTAMP" property="chooseTime" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -72,7 +72,7 @@
   </sql>
   <sql id="Base_Column_List">
     course_id, course_name, course_introduce, course_time, course_tid, max_num, credit, 
-    period, choose_time
+    period, location
   </sql>
   <select id="selectByExample" parameterType="com.xuanke.entity.CourseExample" resultMap="BaseResultMap">
     select
@@ -107,11 +107,11 @@
   <insert id="insert" parameterType="com.xuanke.entity.Course">
     insert into course (course_id, course_name, course_introduce, 
       course_time, course_tid, max_num, 
-      credit, period, choose_time
+      credit, period, location
       )
     values (#{courseId,jdbcType=VARCHAR}, #{courseName,jdbcType=VARCHAR}, #{courseIntroduce,jdbcType=VARCHAR}, 
       #{courseTime,jdbcType=TIMESTAMP}, #{courseTid,jdbcType=VARCHAR}, #{maxNum,jdbcType=INTEGER}, 
-      #{credit,jdbcType=VARCHAR}, #{period,jdbcType=VARCHAR}, #{chooseTime,jdbcType=TIMESTAMP}
+      #{credit,jdbcType=VARCHAR}, #{period,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.xuanke.entity.Course">
@@ -141,8 +141,8 @@
       <if test="period != null">
         period,
       </if>
-      <if test="chooseTime != null">
-        choose_time,
+      <if test="location != null">
+        location,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -170,8 +170,8 @@
       <if test="period != null">
         #{period,jdbcType=VARCHAR},
       </if>
-      <if test="chooseTime != null">
-        #{chooseTime,jdbcType=TIMESTAMP},
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -208,8 +208,8 @@
       <if test="record.period != null">
         period = #{record.period,jdbcType=VARCHAR},
       </if>
-      <if test="record.chooseTime != null">
-        choose_time = #{record.chooseTime,jdbcType=TIMESTAMP},
+      <if test="record.location != null">
+        location = #{record.location,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -226,7 +226,7 @@
       max_num = #{record.maxNum,jdbcType=INTEGER},
       credit = #{record.credit,jdbcType=VARCHAR},
       period = #{record.period,jdbcType=VARCHAR},
-      choose_time = #{record.chooseTime,jdbcType=TIMESTAMP}
+      location = #{record.location,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -255,8 +255,8 @@
       <if test="period != null">
         period = #{period,jdbcType=VARCHAR},
       </if>
-      <if test="chooseTime != null">
-        choose_time = #{chooseTime,jdbcType=TIMESTAMP},
+      <if test="location != null">
+        location = #{location,jdbcType=VARCHAR},
       </if>
     </set>
     where course_id = #{courseId,jdbcType=VARCHAR}
@@ -270,7 +270,7 @@
       max_num = #{maxNum,jdbcType=INTEGER},
       credit = #{credit,jdbcType=VARCHAR},
       period = #{period,jdbcType=VARCHAR},
-      choose_time = #{chooseTime,jdbcType=TIMESTAMP}
+      location = #{location,jdbcType=VARCHAR}
     where course_id = #{courseId,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -9,7 +9,7 @@ public class Course {
 
     private String courseIntroduce;
 
-    private Date courseTime;
+    private String  courseTime;
 
     private String courseTid;
 
@@ -19,7 +19,7 @@ public class Course {
 
     private String period;
 
-    private Date chooseTime;
+    private String location;
 
     public String getCourseId() {
         return courseId;
@@ -45,11 +45,11 @@ public class Course {
         this.courseIntroduce = courseIntroduce == null ? null : courseIntroduce.trim();
     }
 
-    public Date getCourseTime() {
+    public String getCourseTime() {
         return courseTime;
     }
 
-    public void setCourseTime(Date courseTime) {
+    public void setCourseTime(String courseTime) {
         this.courseTime = courseTime;
     }
 
@@ -85,11 +85,11 @@ public class Course {
         this.period = period == null ? null : period.trim();
     }
 
-    public Date getChooseTime() {
-        return chooseTime;
+    public String getLocation() {
+        return location;
     }
 
-    public void setChooseTime(Date chooseTime) {
-        this.chooseTime = chooseTime;
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
     }
 }
