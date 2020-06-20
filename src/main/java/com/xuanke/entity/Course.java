@@ -9,7 +9,7 @@ public class Course {
 
     private String courseIntroduce;
 
-    private String  courseTime;
+    private String courseTime;
 
     private String courseTid;
 
@@ -20,6 +20,8 @@ public class Course {
     private String period;
 
     private String location;
+
+    private String courseImg;
 
     public String getCourseId() {
         return courseId;
@@ -91,5 +93,13 @@ public class Course {
 
     public void setLocation(String location) {
         this.location = location == null ? null : location.trim();
+    }
+
+    public String getCourseImg() {
+        return courseImg;
+    }
+
+    public void setCourseImg(String courseImg) {
+        this.courseImg = courseImg == null ? null : courseImg.trim();
     }
 }

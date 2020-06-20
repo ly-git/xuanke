@@ -29,10 +29,10 @@ public class EstimateController {
 
     @RequestMapping("/getEstimateBycid")
     @ResponseBody
-    public List<Estimate> getEstimateBycid(){
+    public List<Estimate> getEstimateBycid(String cid){
         List<Estimate> estimateList=null;
         EstimateExample ee=new EstimateExample();
-        ee.createCriteria().andCidEqualTo("C09");
+        ee.createCriteria().andCidEqualTo(cid);
         estimateList=estimateService.getEstimateBycid(ee);
       return  estimateList;
     }

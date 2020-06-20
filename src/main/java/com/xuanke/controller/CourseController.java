@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -26,15 +27,19 @@ public class CourseController {
 
     @RequestMapping("/insertCourses")
     @ResponseBody
-    public List<Course> insertCourses(List<Course> list){
-       return list;
+    public boolean insertCourses(Course course){
+      int result=courseService.insertCourses(course);
+      if(result==1){
+          return true;
+      }else{
+          return false;
+      }
+
     }
     @RequestMapping("/getCourseBycid")
     @ResponseBody
-    public Course getCourseBycid(String cid){
-      Course res=courseService.getCourseBycid(cid);
-        System.out.println(res);
-        return courseService.getCourseBycid("c9");
+    public Course getCourseBycid(String courseId){
+        return courseService.getCourseBycid(courseId );
     }
 
 
